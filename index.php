@@ -61,6 +61,9 @@ $dbConnected = (getDbConnection() !== null);
         </div>
       </a>
 
+      <!-- Overlay backdrop para fechar o menu mobile ao tocar fora -->
+      <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+
       <nav aria-label="Navegação Principal">
         <ul class="nav-menu" id="navMenu">
           <li><a href="#hero" class="nav-link active" data-i18n="nav_home">Início</a></li>
@@ -69,6 +72,11 @@ $dbConnected = (getDbConnection() !== null);
           <li><a href="#skills" class="nav-link" data-i18n="nav_skills">Habilidades</a></li>
           <li><a href="#journey" class="nav-link" data-i18n="nav_journey">Trajetória</a></li>
           <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Contato</a></li>
+          <li class="mobile-cta-item">
+            <a href="#contact" class="btn btn-primary btn-sm mobile-menu-cta" data-i18n="nav_cta">
+              Fale Comigo &rarr;
+            </a>
+          </li>
         </ul>
       </nav>
 
@@ -733,7 +741,7 @@ $dbConnected = (getDbConnection() !== null);
         </div>
 
         <nav aria-label="Navegação do Rodapé">
-          <ul class="nav-menu" style="display: flex; gap: 20px; list-style: none;">
+          <ul class="footer-nav-menu">
             <li><a href="#hero" class="nav-link" data-i18n="nav_home">Início</a></li>
             <li><a href="#about" class="nav-link" data-i18n="nav_about">Sobre</a></li>
             <li><a href="#projects" class="nav-link" data-i18n="nav_projects">Projetos</a></li>
