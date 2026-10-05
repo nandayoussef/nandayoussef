@@ -16,20 +16,6 @@ Website de portfólio profissional moderno, bilíngue (Português & Inglês), in
 - **Ícones & Fontes**: Font Awesome 6, Google Fonts (Plus Jakarta Sans & Outfit)
 - **Banco de Dados**: MySQL / MariaDB (compatível com XAMPP)
 
-## 📦 Como Executar Localmente (XAMPP)
-1. Clone ou copie a pasta do projeto para o diretório `htdocs` do seu XAMPP:
-   ```bash
-   c:\xampp\htdocs\nandayoussef
-   ```
-2. Inicie os módulos **Apache** e **MySQL** no Painel de Controle do XAMPP.
-3. Acesse no navegador o instalador do banco de dados:
-   ```
-   http://localhost/nandayoussef/setup_db.php
-   ```
-4. Pronto! O banco de dados e as tabelas serão criados automaticamente. Acesse a aplicação em:
-   ```
-   http://localhost/nandayoussef/
-   ```
 
 ---
 Desenvolvido por **Fernanda Youssef** • [GitHub](https://github.com/nandayoussef)
