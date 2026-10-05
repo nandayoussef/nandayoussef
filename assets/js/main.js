@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTerminalActions();
   initScrollReveal();
   initScrollToTop();
+  initLgpdAndCookies();
 });
 
 /* ==========================================================================
@@ -148,7 +149,46 @@ const I18N_DICTIONARY = {
 
     // Footer
     footer_rights: "Todos os direitos reservados.",
-    footer_tagline: "Desenvolvido com elegância, modernidade, <strong>PHP</strong> & <strong>MySQL</strong>."
+    footer_tagline: "Desenvolvido com elegância, modernidade, <strong>PHP</strong> & <strong>MySQL</strong>.",
+
+    // Cookies & LGPD
+    cookie_msg: "Utilizamos cookies essenciais para salvar suas preferências (tema e idioma). Saiba mais em nossa",
+    cookie_policy_link: "Política de Privacidade & LGPD",
+    cookie_btn_accept: "Entendi",
+    footer_privacy: "Privacidade & LGPD",
+    privacy_badge: "Conformidade & LGPD",
+    privacy_title: "Privacidade & Proteção de Dados",
+    privacy_btn_close: "Fechar",
+    privacy_body: `
+      <p class="privacy-intro">
+        Esta Política de Privacidade descreve de forma transparente e simplificada como seus dados e preferências são tratados ao navegar neste portfólio profissional, em conformidade com a <strong>Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018)</strong>.
+      </p>
+
+      <div class="privacy-section">
+        <h4>1. Coleta de Dados Pessoais</h4>
+        <p>Este site coleta dados pessoais apenas quando você os fornece voluntariamente através do <strong>Formulário de Contato</strong> (Nome, E-mail, Assunto e Mensagem).</p>
+      </div>
+
+      <div class="privacy-section">
+        <h4>2. Finalidade do Tratamento</h4>
+        <p>Os dados preenchidos no formulário são utilizados exclusivamente para retornar o seu contato, responder a dúvidas ou avaliar propostas profissionais. <strong>Seus dados jamais serão comercializados, repassados a terceiros ou utilizados para envio de spams.</strong></p>
+      </div>
+
+      <div class="privacy-section">
+        <h4>3. Cookies e Armazenamento Local</h4>
+        <p>Utilizamos apenas armazenamento estritamente necessário no seu próprio navegador (<code>localStorage</code>) para memorizar suas preferências visuais: <strong>modo de cor (claro/escuro)</strong>, <strong>idioma selecionado (português/inglês)</strong> e o <strong>aceite deste aviso de cookies</strong>. Não utilizamos cookies de rastreamento invasivo ou de terceiros para publicidade.</p>
+      </div>
+
+      <div class="privacy-section">
+        <h4>4. Seus Direitos (Art. 18 da LGPD)</h4>
+        <p>Você pode a qualquer momento solicitar a confirmação, consulta, retificação ou exclusão definitiva de qualquer mensagem enviada. Para isso, basta entrar em contato pelo e-mail <strong>nandayoussef@gmail.com</strong>.</p>
+      </div>
+
+      <div class="privacy-section">
+        <h4>5. Segurança</h4>
+        <p>Adotamos medidas técnicas adequadas, como conexões protegidas e tratamento seguro das entradas no banco de dados com PDO, visando impedir acessos não autorizados.</p>
+      </div>
+    `
   },
 
   en: {
@@ -281,7 +321,46 @@ const I18N_DICTIONARY = {
 
     // Footer
     footer_rights: "All rights reserved.",
-    footer_tagline: "Crafted with elegance, craftsmanship, <strong>PHP</strong> & <strong>MySQL</strong>."
+    footer_tagline: "Crafted with elegance, craftsmanship, <strong>PHP</strong> & <strong>MySQL</strong>.",
+
+    // Cookies & LGPD
+    cookie_msg: "We use essential cookies to remember your browsing preferences (theme and language). Learn more in our",
+    cookie_policy_link: "Privacy Policy & LGPD",
+    cookie_btn_accept: "Got it",
+    footer_privacy: "Privacy & LGPD",
+    privacy_badge: "Compliance & Data Privacy",
+    privacy_title: "Privacy & Data Protection",
+    privacy_btn_close: "Close",
+    privacy_body: `
+      <p class="privacy-intro">
+        This Privacy Policy outlines in a clear and transparent manner how your data and preferences are handled when browsing this portfolio, following best practices and the <strong>Brazilian General Data Protection Law (LGPD - Law 13.709/2018)</strong>.
+      </p>
+
+      <div class="privacy-section">
+        <h4>1. Personal Data Collection</h4>
+        <p>This website only collects personal data when you voluntarily provide it through the <strong>Contact Form</strong> (Name, Email, Subject, and Message).</p>
+      </div>
+
+      <div class="privacy-section">
+        <h4>2. Purpose of Processing</h4>
+        <p>The information submitted is used solely to respond to your inquiry, feedback, or professional collaboration proposal. <strong>Your information is never sold, shared with third parties, or used for unsolicited marketing.</strong></p>
+      </div>
+
+      <div class="privacy-section">
+        <h4>3. Cookies and Local Storage</h4>
+        <p>We only use strictly essential storage on your browser (<code>localStorage</code>) to preserve your aesthetic preferences: <strong>color mode (dark/light)</strong>, <strong>chosen language (Portuguese/English)</strong>, and <strong>acceptance of this notice</strong>. No invasive tracking or advertising cookies are utilized.</p>
+      </div>
+
+      <div class="privacy-section">
+        <h4>4. Your Rights</h4>
+        <p>You may at any time request access to, correction, or permanent deletion of any message or information sent. Simply contact me via email at <strong>nandayoussef@gmail.com</strong>.</p>
+      </div>
+
+      <div class="privacy-section">
+        <h4>5. Security</h4>
+        <p>Appropriate technical safeguards, including parameterized PDO queries and sanitized inputs, are implemented to protect your communications against unauthorized access.</p>
+      </div>
+    `
   }
 };
 
@@ -781,3 +860,68 @@ function initScrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
+
+/* ==========================================================================
+   11. LGPD & COOKIE NOTICE (DISCRETO & ELEGANTE)
+   ========================================================================== */
+function initLgpdAndCookies() {
+  const cookieBanner = document.getElementById('cookieBanner');
+  const acceptBtn = document.getElementById('acceptCookiesBtn');
+  const openBannerLink = document.getElementById('openPrivacyFromBanner');
+  const openFooterLink = document.getElementById('footerPrivacyBtn');
+  const privacyModal = document.getElementById('privacyModal');
+  const privacyCloseBtn = document.getElementById('privacyModalClose');
+  const privacyOkBtn = document.getElementById('privacyModalOkBtn');
+
+  // 1. Exibir Banner de Cookies (com delay sutil se não aceito ainda)
+  const consentGiven = localStorage.getItem('nanda_cookie_consent');
+  if (!consentGiven && cookieBanner) {
+    setTimeout(() => {
+      cookieBanner.style.display = 'flex';
+      setTimeout(() => cookieBanner.classList.add('visible'), 20);
+    }, 1200);
+  }
+
+  // 2. Ação de Aceitar Cookies
+  if (acceptBtn && cookieBanner) {
+    acceptBtn.addEventListener('click', () => {
+      localStorage.setItem('nanda_cookie_consent', 'accepted');
+      cookieBanner.classList.remove('visible');
+      setTimeout(() => {
+        cookieBanner.style.display = 'none';
+      }, 400);
+    });
+  }
+
+  // 3. Modal de Política de Privacidade
+  function openPrivacyModal(e) {
+    if (e) e.preventDefault();
+    if (!privacyModal) return;
+    privacyModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePrivacyModal() {
+    if (!privacyModal) return;
+    privacyModal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  if (openBannerLink) openBannerLink.addEventListener('click', openPrivacyModal);
+  if (openFooterLink) openFooterLink.addEventListener('click', openPrivacyModal);
+  if (privacyCloseBtn) privacyCloseBtn.addEventListener('click', closePrivacyModal);
+  if (privacyOkBtn) privacyOkBtn.addEventListener('click', closePrivacyModal);
+
+  if (privacyModal) {
+    privacyModal.addEventListener('click', (e) => {
+      if (e.target === privacyModal) closePrivacyModal();
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && privacyModal && privacyModal.classList.contains('active')) {
+      closePrivacyModal();
+    }
+  });
+}
+

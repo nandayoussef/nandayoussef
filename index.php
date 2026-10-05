@@ -682,6 +682,39 @@ $dbConnected = (getDbConnection() !== null);
     </div>
   </div>
 
+  <!-- Privacy Policy & LGPD Modal -->
+  <div class="modal-backdrop" id="privacyModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-container modal-privacy-container">
+      <button type="button" class="modal-close-btn" id="privacyModalClose" aria-label="Fechar Modal">✕</button>
+      <div class="modal-body">
+        <div class="modal-category" data-i18n="privacy_badge">Conformidade & LGPD</div>
+        <h3 class="modal-title" data-i18n="privacy_title">Privacidade & Proteção de Dados</h3>
+        <div class="privacy-modal-content" data-i18n="privacy_body">
+          <!-- Conteúdo populado dinamicamente via JS / i18n -->
+        </div>
+        <div class="modal-actions" style="margin-top: 24px; justify-content: flex-end;">
+          <button type="button" class="btn btn-primary btn-sm" id="privacyModalOkBtn" data-i18n="privacy_btn_close">
+            Fechar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LGPD & Cookie Notice (Singelo & Discreto) -->
+  <aside class="cookie-banner" id="cookieBanner" aria-label="Aviso de Cookies e LGPD" style="display: none;">
+    <div class="cookie-content">
+      <span class="cookie-icon" aria-hidden="true">🍪</span>
+      <p class="cookie-text">
+        <span data-i18n="cookie_msg">Utilizamos cookies essenciais para salvar suas preferências (tema e idioma). Saiba mais em nossa</span>
+        <button type="button" class="cookie-policy-link" id="openPrivacyFromBanner" data-i18n="cookie_policy_link">Política de Privacidade & LGPD</button>.
+      </p>
+    </div>
+    <div class="cookie-actions">
+      <button type="button" class="btn btn-primary btn-sm" id="acceptCookiesBtn" data-i18n="cookie_btn_accept">Entendi</button>
+    </div>
+  </aside>
+
   <!-- Scroll to Top Button -->
   <button type="button" class="scroll-top-btn" id="scrollTopBtn" aria-label="Voltar ao início">
     ↑
@@ -712,7 +745,7 @@ $dbConnected = (getDbConnection() !== null);
 
       <div class="footer-bottom">
         <div>
-          &copy; <?= date('Y') ?> <strong>Fernanda (Nanda) Youssef</strong> • <span data-i18n="footer_rights">Todos os direitos reservados.</span>
+          &copy; <?= date('Y') ?> <strong>Fernanda (Nanda) Youssef</strong> • <span data-i18n="footer_rights">Todos os direitos reservados.</span> • <button type="button" class="footer-privacy-btn" id="footerPrivacyBtn" data-i18n="footer_privacy">Privacidade & LGPD</button>
         </div>
         <div data-i18n="footer_tagline">
           Desenvolvido com elegância, modernidade, <strong>PHP</strong> & <strong>MySQL</strong>.

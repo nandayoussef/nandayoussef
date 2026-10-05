@@ -1779,3 +1779,162 @@ body.js-reveal-active .reveal-scale:not(.revealed) {
   .projects-grid { grid-template-columns: 1fr; }
   .floating-badge { display: none; }
 }
+
+/* ==========================================================================
+   LGPD & COOKIE NOTICE (DISCRETO & ELEGANTE)
+   ========================================================================== */
+.cookie-banner {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 950;
+  max-width: 440px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(212, 175, 55, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.cookie-banner.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cookie-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cookie-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.cookie-text {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.cookie-policy-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--gold-primary);
+  text-decoration: underline;
+  cursor: pointer;
+  display: inline;
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.cookie-policy-link:hover {
+  color: var(--gold-hover);
+}
+
+.cookie-actions {
+  flex-shrink: 0;
+}
+
+.footer-privacy-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--gold-primary);
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color var(--transition-fast);
+  display: inline;
+}
+
+.footer-privacy-btn:hover {
+  color: var(--gold-hover);
+}
+
+/* Privacy Modal Styles */
+.modal-privacy-container {
+  max-width: 720px;
+  max-height: 85vh;
+}
+
+.privacy-modal-content {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-height: 55vh;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.privacy-modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.privacy-modal-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.privacy-modal-content::-webkit-scrollbar-thumb {
+  background: var(--gold-primary);
+  border-radius: 4px;
+}
+
+.privacy-intro {
+  font-size: 0.98rem;
+  color: var(--text-main);
+  border-left: 3px solid var(--gold-primary);
+  padding-left: 14px;
+  margin-bottom: 6px;
+}
+
+.privacy-section h4 {
+  color: var(--text-main);
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+  font-family: var(--font-serif);
+}
+
+.privacy-section p {
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .cookie-banner {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    max-width: calc(100% - 32px);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .cookie-actions {
+    width: 100%;
+  }
+
+  .cookie-actions .btn {
+    width: 100%;
+  }
+}
+
