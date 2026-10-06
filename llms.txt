@@ -1,0 +1,54 @@
+# Fernanda Youssef - Portfólio Profissional Web
+
+> Desenvolvedora Web Full Stack (PHP 8 & MySQL) e Designer de Interfaces (UI/UX). Especialista na criação de aplicações web modernas, plataformas SaaS, e-commerces elegantes e landing pages de alta conversão.
+
+## Perfil Profissional
+- **Nome**: Fernanda (Nanda) Youssef
+- **Título**: Desenvolvedora Web & UI/UX Designer
+- **Localização**: São Paulo, Brasil (Disponível para projetos remotos globais)
+- **Idiomas**: Português (Nativo), Inglês (Fluente / Profissional)
+- **E-mail**: nandayoussef@gmail.com
+- **GitHub**: https://github.com/nandayoussef
+- **Especialidade**: Fusão entre robustez de engenharia no back-end (PHP & MySQL) e estética refinada de alto padrão no front-end (HTML5 Semântico, CSS Moderno, JavaScript ES6+ e HTMX).
+
+## Competências Técnicas (Stack)
+- **Back-End**: PHP 8.x, Programação Orientada a Objetos (OOP), PDO Seguro com Prepared Statements, Arquitetura RESTful APIs, Autenticação de Sessões, Tratamento de Erros e Validação de Dados.
+- **Banco de Dados**: MySQL, MariaDB, Modelagem Relacional de Dados, Normalização, Índices, Otimização de Consultas SQL.
+- **Front-End**: HTML5 Semântico (Acessibilidade WCAG e SEO Técnico), CSS3 Avançado (CSS Grid, Flexbox, Design Tokens, Glassmorphism, Micro-animações e Responsividade Total), JavaScript Moderno (ES6+, Fetch API, Manipulação do DOM assíncrona), HTMX (Server-Driven UI).
+- **Design & UI/UX**: Prototipagem em Figma, Tipografia Editorial, Teoria das Cores, Design Systems, Design Responsivo (Mobile-First) e Otimização Core Web Vitals (Lighthouse 95+).
+- **Workflow & Ferramentas**: Git, GitHub, XAMPP, Composer, Clean Code, Boas Práticas de Segurança e Conformidade com a LGPD (Lei Geral de Proteção de Dados).
+
+## Projetos em Destaque
+
+### 1. Nova Analytics Hub (Web Apps & SaaS)
+- **Descrição**: Plataforma analítica moderna no modelo SaaS com métricas em tempo real, snippets de código elegantes e tema escuro refinado.
+- **Tecnologias**: PHP 8.2, MySQL, JavaScript ES6+, CSS Grid, Chart.js.
+- **Destaques Técnicos**: Widgets analíticos dinâmicos, controle de permissões de usuários, persistência segura via PDO e integração com APIs REST.
+
+### 2. Aurélie Luxury E-Commerce (E-Commerce)
+- **Descrição**: Experiência responsiva de alta joalheria com interface luxuosa em tons rosé e champagne, catálogo dinâmico de produtos e fluxo de checkout sem atritos.
+- **Tecnologias**: PHP, MySQL Relacional, Vanilla JavaScript, Modern CSS, Figma.
+- **Destaques Técnicos**: Carrinho persistente em sessão PHP, modelagem de banco relacional para produtos, clientes e pedidos, filtros dinâmicos de categoria e micro-animações.
+
+### 3. Moderne Digital Suite (Landing Pages & UI)
+- **Descrição**: Landing page de alta conversão para lançamento de produtos digitais, criada com efeitos glassmorphism e foco na retenção do usuário.
+- **Tecnologias**: HTML5 Semântico, CSS3 Avançado, JavaScript ES6+, PHP Mailer.
+- **Destaques Técnicos**: Animações de scroll-reveal fluidas, formulário de captura com validação em tempo real e integração direta com o backend PHP.
+
+### 4. Maison Aude Brand & Web (Identidade & Web)
+- **Descrição**: Portal institucional minimalista e design system para ateliê exclusivo de moda, combinando tipografia editorial e acessibilidade impecável.
+- **Tecnologias**: PHP, Design System, CSS Grid, Padrões de Acessibilidade (WCAG).
+- **Destaques Técnicos**: Arquitetura de informação orientada a SEO e pontuação máxima no Google Lighthouse.
+
+## Serviços Prestados
+- Desenvolvimento de Web Apps e Sistemas Customizados em PHP & MySQL.
+- Criação de Portfólios, Landing Pages e Sites Institucionais de Alto Padrão.
+- Desenvolvimento de E-Commerces e Catálogos de Produtos Dinâmicos.
+- Redesign de Interfaces (UI/UX) com foco em modernidade, elegância e responsividade.
+- Otimização de Performance, SEO Técnico e Integração com APIs.
+
+## Contato e Contratação
+- Para orçamentos, projetos sob medida ou oportunidades profissionais:
+  - **E-mail**: nandayoussef@gmail.com
+  - **GitHub**: https://github.com/nandayoussef
+  - **Formulário Web**: Acessível diretamente pelo portfólio oficial.

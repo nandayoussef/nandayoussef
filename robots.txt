@@ -1,0 +1,56 @@
+# Robots.txt - Portfólio Profissional de Fernanda Youssef
+# Configuração de SEO & GEO (Generative Engine Optimization para IAs)
+
+User-agent: *
+Allow: /
+Allow: /sitemap.xml
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /assets/
+Disallow: /api/
+Disallow: /setup_db.php
+
+# OpenAI (ChatGPT & SearchGPT)
+User-agent: GPTBot
+Allow: /
+Allow: /llms.txt
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+Allow: /llms.txt
+
+# Anthropic (Claude)
+User-agent: ClaudeBot
+Allow: /
+Allow: /llms.txt
+
+User-agent: anthropic-ai
+Allow: /
+
+# Google (Google Search & Google Gemini)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Microsoft Bing & Copilot
+User-agent: Bingbot
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Common Crawl (Base de treinamento de LLMs abertos)
+User-agent: CCBot
+Allow: /
+
+Sitemap: sitemap.xml

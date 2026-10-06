@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   initScrollToTop();
   initLgpdAndCookies();
+  initFaqAccordion();
 });
 
 /* ==========================================================================
@@ -29,6 +30,7 @@ const I18N_DICTIONARY = {
     nav_projects: "Projetos",
     nav_skills: "Habilidades",
     nav_journey: "Trajetória",
+    nav_faq: "FAQ",
     nav_contact: "Contato",
     nav_cta: "Fale Comigo",
 
@@ -118,6 +120,20 @@ const I18N_DICTIONARY = {
     journey_4_title: "Criação de Projetos de Alto Valor",
     journey_4_desc: "Desenvolvimento de soluções web completas, prontas para o mercado, combinando interfaces elegantes com arquitetura confiável de software. Pronta para novas oportunidades e parcerias!",
 
+    // FAQ (SEO & IAs)
+    faq_tag: "Dúvidas Frequentes",
+    faq_title_prefix: "Perguntas",
+    faq_title_accent: "Frequentes & Respostas",
+    faq_subtitle: "Respostas rápidas sobre minha atuação profissional, stack tecnológica e contratação de serviços web.",
+    faq_q1: "Quais tipos de projetos web você desenvolve?",
+    faq_a1: "Desenvolvo aplicações completas: plataformas SaaS, sistemas administrativos, lojas virtuais (e-commerce) com modelagem relacional de pedidos e produtos, landing pages interativas de alta conversão e portfólios institucionais sofisticados. Todos 100% responsivos e otimizados para velocidade no Google.",
+    faq_q2: "Por que utilizar PHP 8 e MySQL para desenvolver minha aplicação?",
+    faq_a2: "O PHP 8 moderno oferece alta performance de execução (JIT compiler), arquitetura orientada a objetos robusta e segurança exemplar através de conexões PDO com queries preparadas. Junto ao MySQL, garante excelente custo-benefício de hospedagem, estabilidade sem dependências complexas e facilidade de manutenção a longo prazo.",
+    faq_q3: "Você atende empresas e clientes de qualquer região?",
+    faq_a3: "Sim! Trabalho de forma 100% remota com empresas e clientes do Brasil e do exterior. Toda a comunicação e alinhamento de entregas são conduzidos com transparência via WhatsApp, videoconferência, e-mail e versionamento no GitHub.",
+    faq_q4: "Como solicitar uma proposta, orçamento ou conversar sobre parcerias?",
+    faq_a4: "Basta preencher o formulário de contato logo abaixo ou me chamar diretamente pelo WhatsApp corporativo. Retorno propostas com agilidade, detalhando prazos, escopo e arquitetura da solução!",
+
     // Contact
     contact_tag: "Conecte-se Comigo",
     contact_title_prefix: "Vamos Iniciar um",
@@ -201,6 +217,7 @@ const I18N_DICTIONARY = {
     nav_projects: "Projects",
     nav_skills: "Skills",
     nav_journey: "Journey",
+    nav_faq: "FAQ",
     nav_contact: "Contact",
     nav_cta: "Get in Touch",
 
@@ -289,6 +306,20 @@ const I18N_DICTIONARY = {
     journey_4_date: "Phase 4 • Present & Future",
     journey_4_title: "Crafting High-Value Solutions",
     journey_4_desc: "Developing end-to-end web applications combining elegant interfaces with reliable software architecture. Ready for new opportunities and partnerships!",
+
+    // FAQ (SEO & AI Search)
+    faq_tag: "Common Questions",
+    faq_title_prefix: "Frequently",
+    faq_title_accent: "Asked Questions",
+    faq_subtitle: "Quick answers about my background, tech stack, and hiring services.",
+    faq_q1: "What types of web projects do you develop?",
+    faq_a1: "I build end-to-end web applications: SaaS platforms, admin panels, e-commerce stores with relational database modeling, high-conversion landing pages, and bespoke corporate websites. Everything is 100% responsive and performance-optimized for search engines.",
+    faq_q2: "Why build applications with PHP 8 and MySQL in 2026?",
+    faq_a2: "Modern PHP 8 delivers exceptional execution performance with its JIT compiler, robust OOP patterns, and bulletproof security via parameterized PDO connections. Paired with MySQL, it provides low hosting overhead, high stability without bloated dependencies, and easy long-term maintainability.",
+    faq_q3: "Do you collaborate with clients and companies remotely?",
+    faq_a3: "Yes! I work 100% remotely with companies and individuals worldwide. All milestones and communications are handled seamlessly via WhatsApp, video meetings, email, and GitHub repositories.",
+    faq_q4: "How can I request a project proposal or quote?",
+    faq_a4: "Simply submit the contact form below or reach out directly on WhatsApp. I respond promptly with detailed scoping, timeline, and architectural recommendations!",
 
     // Contact
     contact_tag: "Connect With Me",
@@ -945,4 +976,26 @@ function initLgpdAndCookies() {
     }
   });
 }
+
+/* ==========================================================================
+   12. FAQ ACCORDION (SEO & IA PERGUNTAS FREQUENTES)
+   ========================================================================== */
+function initFaqAccordion() {
+  const faqItems = document.querySelectorAll('.faq-item');
+  if (!faqItems.length) return;
+
+  faqItems.forEach(item => {
+    item.addEventListener('toggle', () => {
+      if (item.open) {
+        // Fechar outros itens abertos para manter leitura limpa
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item && otherItem.open) {
+            otherItem.removeAttribute('open');
+          }
+        });
+      }
+    });
+  });
+}
+
 

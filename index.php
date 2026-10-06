@@ -7,30 +7,191 @@
 require_once __DIR__ . '/config.php';
 $projects = getProjects();
 $dbConnected = (getDbConnection() !== null);
+// Detecção dinâmica de URL base para canonicals e open graph perfeitos
+$isHttps = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443);
+$protocol = $isHttps ? "https://" : "http://";
+$host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+$scriptDir = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? '')), '/');
+$baseUrl = $protocol . $host . ($scriptDir ? $scriptDir . '/' : '/');
+$canonicalUrl = $baseUrl;
 ?>
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="dark">
+<html lang="pt-BR" data-theme="dark" prefix="og: https://ogp.me/ns# profile: https://ogp.me/ns/profile#">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   
-  <!-- SEO Primary Meta Tags -->
-  <title>Fernanda Youssef | Desenvolvedora Web & UI/UX</title>
-  <meta name="title" content="Fernanda Youssef | Desenvolvedora Web & UI/UX">
-  <meta name="description" content="Portfólio de Fernanda (Nanda) Youssef. Desenvolvedora Web com foco em PHP, MySQL, JavaScript e design de alto padrão.">
-  <meta name="keywords" content="Fernanda Youssef, Nanda Youssef, Desenvolvedora Web, Web Developer, PHP, MySQL, JavaScript, Front-end, Portfólio">
+  <!-- Primary SEO Meta Tags -->
+  <title>Fernanda Youssef | Desenvolvedora Web Full Stack (PHP & MySQL) & UI/UX</title>
+  <meta name="title" content="Fernanda Youssef | Desenvolvedora Web Full Stack (PHP & MySQL) & UI/UX">
+  <meta name="description" content="Portfólio profissional de Fernanda (Nanda) Youssef. Criação de sites modernos, plataformas SaaS e e-commerces elegantes com PHP 8, MySQL, JavaScript e design de alto padrão.">
+  <meta name="keywords" content="Fernanda Youssef, Nanda Youssef, Desenvolvedora Web, Desenvolvedora PHP, Desenvolvedora Full Stack, PHP 8, MySQL, JavaScript, UI/UX, Portfólio Web, Criação de Sites, Front-End, Back-End, Brasil">
   <meta name="author" content="Fernanda Youssef">
-  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="<?= htmlspecialchars($canonicalUrl) ?>">
 
-  <!-- Open Graph / Facebook / WhatsApp -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="http://localhost/nandayoussef/">
-  <meta property="og:title" content="Fernanda Youssef | Desenvolvedora Web">
-  <meta property="og:description" content="Desenvolvendo experiências digitais modernas, elegantes e funcionais. Conheça meus projetos em PHP, MySQL e Front-End.">
-  <meta property="og:image" content="assets/images/nanda_portrait.jpg">
+  <!-- Search Engine & Crawler Directives (Google, Bing & AI Overviews) -->
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="theme-color" content="#0a090a">
+  <meta name="color-scheme" content="dark light">
+
+  <!-- Open Graph / WhatsApp / LinkedIn / Facebook -->
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="<?= htmlspecialchars($canonicalUrl) ?>">
+  <meta property="og:title" content="Fernanda Youssef | Desenvolvedora Web Full Stack (PHP & MySQL)">
+  <meta property="og:description" content="Desenvolvendo experiências digitais modernas, elegantes e funcionais. Conheça projetos SaaS, E-commerces e interfaces em PHP, MySQL e JavaScript.">
+  <meta property="og:image" content="<?= htmlspecialchars($baseUrl . 'assets/images/nanda_portrait.jpg') ?>">
+  <meta property="og:image:secure_url" content="<?= htmlspecialchars($baseUrl . 'assets/images/nanda_portrait.jpg') ?>">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Retrato Profissional de Fernanda Youssef - Desenvolvedora Web">
+  <meta property="og:site_name" content="Fernanda Youssef Portfolio">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="profile:first_name" content="Fernanda">
+  <meta property="profile:last_name" content="Youssef">
+  <meta property="profile:username" content="nandayoussef">
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="<?= htmlspecialchars($canonicalUrl) ?>">
+  <meta name="twitter:title" content="Fernanda Youssef | Desenvolvedora Web Full Stack & UI/UX">
+  <meta name="twitter:description" content="Portfólio moderno em PHP 8, MySQL e JavaScript. Conheça projetos SaaS, E-commerces e interfaces de alto padrão.">
+  <meta name="twitter:image" content="<?= htmlspecialchars($baseUrl . 'assets/images/nanda_portrait.jpg') ?>">
+  <meta name="twitter:image:alt" content="Foto de Fernanda Youssef">
+
+  <!-- AI & Discoverability Standards (GEO & PWA) -->
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml">
+  <link rel="alternate" type="text/plain" title="LLMs AI Documentation" href="llms.txt">
+  <meta name="format-detection" content="telephone=no">
 
   <!-- Favicon / Touch Icon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+
+  <!-- Structured Data: Multi-Type Schema.org JSON-LD (Search Engines & AI LLMs) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "<?= $canonicalUrl ?>#person",
+        "name": "Fernanda Youssef",
+        "alternateName": ["Nanda Youssef", "Fernanda (Nanda) Youssef"],
+        "url": "<?= $canonicalUrl ?>",
+        "image": {
+          "@type": "ImageObject",
+          "url": "<?= $baseUrl ?>assets/images/nanda_portrait.jpg",
+          "caption": "Fernanda Youssef - Desenvolvedora Web & UI/UX"
+        },
+        "jobTitle": "Desenvolvedora Web & UI/UX",
+        "description": "Desenvolvedora Web especializada em PHP 8, banco de dados MySQL, JavaScript e criação de interfaces modernas de alto padrão.",
+        "email": "mailto:nandayoussef@gmail.com",
+        "sameAs": [
+          "https://github.com/nandayoussef"
+        ],
+        "knowsAbout": [
+          "PHP 8",
+          "MySQL",
+          "JavaScript",
+          "HTML5 Semântico",
+          "CSS3 Moderno",
+          "UI/UX Design",
+          "RESTful APIs",
+          "SaaS Architecture",
+          "Responsive Web Design",
+          "Database Modeling (PDO)",
+          "Web Accessibility (WCAG)"
+        ],
+        "knowsLanguage": ["pt-BR", "en"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "<?= $canonicalUrl ?>#website",
+        "url": "<?= $canonicalUrl ?>",
+        "name": "Fernanda Youssef - Portfólio Profissional Web",
+        "description": "Portfólio de desenvolvimento web moderno com PHP, MySQL e front-end responsivo.",
+        "inLanguage": ["pt-BR", "en"],
+        "publisher": {
+          "@id": "<?= $canonicalUrl ?>#person"
+        }
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": "<?= $canonicalUrl ?>#webpage",
+        "url": "<?= $canonicalUrl ?>",
+        "name": "Fernanda Youssef | Portfólio de Projetos Web & Engenharia de Software",
+        "isPartOf": {
+          "@id": "<?= $canonicalUrl ?>#website"
+        },
+        "about": {
+          "@id": "<?= $canonicalUrl ?>#person"
+        },
+        "mainEntity": {
+          "@id": "<?= $canonicalUrl ?>#person"
+        }
+      },
+      {
+        "@type": "ItemList",
+        "name": "Projetos em Destaque de Fernanda Youssef",
+        "itemListElement": [
+          <?php 
+          $itemList = [];
+          $pos = 1;
+          foreach ($projects as $proj) {
+            $itemList[] = json_encode([
+              "@type" => "SoftwareApplication",
+              "position" => $pos++,
+              "name" => $proj['title'],
+              "description" => $proj['description'],
+              "applicationCategory" => $proj['category'],
+              "operatingSystem" => "Web Browser",
+              "url" => $canonicalUrl . "#projects",
+              "author" => [
+                "@type" => "Person",
+                "name" => "Fernanda Youssef"
+              ]
+            ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+          }
+          echo implode(",\n          ", $itemList);
+          ?>
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Quais tecnologias e linguagens Fernanda Youssef domina?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Fernanda Youssef atua com foco em back-end PHP 8 (PDO, POO, APIs RESTful) e banco de dados MySQL, além de desenvolvimento front-end com HTML5 semântico, CSS3 moderno (Grid, Flexbox), JavaScript ES6+ e UI/UX design no Figma."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Que tipos de projetos Fernanda Youssef desenvolve?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Desenvolve plataformas SaaS, portfólios profissionais, lojas virtuais (e-commerce), landing pages de alta conversão, portais institucionais e sistemas web sob medida."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Como entrar em contato ou contratar Fernanda Youssef?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Você pode entrar em contato diretamente pelo e-mail nandayoussef@gmail.com, pelo GitHub oficial https://github.com/nandayoussef ou preenchendo o formulário de contato em seu portfólio."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 
   <!-- Google Fonts Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -71,6 +232,7 @@ $dbConnected = (getDbConnection() !== null);
           <li><a href="#projects" class="nav-link" data-i18n="nav_projects">Projetos</a></li>
           <li><a href="#skills" class="nav-link" data-i18n="nav_skills">Habilidades</a></li>
           <li><a href="#journey" class="nav-link" data-i18n="nav_journey">Trajetória</a></li>
+          <li><a href="#faq" class="nav-link" data-i18n="nav_faq">FAQ</a></li>
           <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Contato</a></li>
           <li class="mobile-cta-item">
             <a href="#contact" class="btn btn-primary btn-sm mobile-menu-cta" data-i18n="nav_cta">
@@ -556,6 +718,69 @@ $dbConnected = (getDbConnection() !== null);
       </div>
     </section>
 
+    <!-- FAQ Section (Otimizado para SEO & Descoberta por IAs) -->
+    <section id="faq" aria-labelledby="faqTitle">
+      <div class="container">
+        <div class="section-tag reveal" data-i18n="faq_tag">Dúvidas Frequentes</div>
+        <h2 class="section-title reveal" id="faqTitle">
+          <span data-i18n="faq_title_prefix">Perguntas</span> <span class="text-gradient" data-i18n="faq_title_accent">Frequentes & Respostas</span>
+        </h2>
+        <p class="section-subtitle reveal" data-i18n="faq_subtitle">
+          Respostas rápidas sobre minha atuação profissional, stack tecnológica e contratação de serviços web.
+        </p>
+
+        <div class="faq-accordion-container stagger-parent">
+          <details class="faq-item reveal" open>
+            <summary class="faq-question">
+              <span class="faq-q-text" data-i18n="faq_q1">Quais tipos de projetos web você desenvolve?</span>
+              <span class="faq-chevron" aria-hidden="true">▾</span>
+            </summary>
+            <div class="faq-answer">
+              <p data-i18n="faq_a1">
+                Desenvolvo aplicações completas: plataformas SaaS, sistemas administrativos, lojas virtuais (e-commerce) com modelagem relacional de pedidos e produtos, landing pages interativas de alta conversão e portfólios institucionais sofisticados. Todos 100% responsivos e otimizados para velocidade no Google.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary class="faq-question">
+              <span class="faq-q-text" data-i18n="faq_q2">Por que utilizar PHP 8 e MySQL para desenvolver minha aplicação?</span>
+              <span class="faq-chevron" aria-hidden="true">▾</span>
+            </summary>
+            <div class="faq-answer">
+              <p data-i18n="faq_a2">
+                O PHP 8 moderno oferece alta performance de execução (JIT compiler), arquitetura orientada a objetos robusta e segurança exemplar através de conexões PDO com queries preparadas. Junto ao MySQL, garante excelente custo-benefício de hospedagem, estabilidade sem dependências complexas e facilidade de manutenção a longo prazo.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary class="faq-question">
+              <span class="faq-q-text" data-i18n="faq_q3">Você atende empresas e clientes de qualquer região?</span>
+              <span class="faq-chevron" aria-hidden="true">▾</span>
+            </summary>
+            <div class="faq-answer">
+              <p data-i18n="faq_a3">
+                Sim! Trabalho de forma 100% remota com empresas e clientes do Brasil e do exterior. Toda a comunicação e alinhamento de entregas são conduzidos com transparência via WhatsApp, videoconferência, e-mail e versionamento no GitHub.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary class="faq-question">
+              <span class="faq-q-text" data-i18n="faq_q4">Como solicitar uma proposta, orçamento ou conversar sobre parcerias?</span>
+              <span class="faq-chevron" aria-hidden="true">▾</span>
+            </summary>
+            <div class="faq-answer">
+              <p data-i18n="faq_a4">
+                Basta preencher o formulário de contato logo abaixo ou me chamar diretamente pelo WhatsApp corporativo. Retorno propostas com agilidade, detalhando prazos, escopo e arquitetura da solução!
+              </p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact">
       <div class="container">
@@ -746,6 +971,7 @@ $dbConnected = (getDbConnection() !== null);
             <li><a href="#about" class="nav-link" data-i18n="nav_about">Sobre</a></li>
             <li><a href="#projects" class="nav-link" data-i18n="nav_projects">Projetos</a></li>
             <li><a href="#skills" class="nav-link" data-i18n="nav_skills">Habilidades</a></li>
+            <li><a href="#faq" class="nav-link" data-i18n="nav_faq">FAQ</a></li>
             <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Contato</a></li>
           </ul>
         </nav>

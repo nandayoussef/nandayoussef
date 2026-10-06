@@ -1,0 +1,18 @@
+{
+  "name": "Fernanda Youssef | Desenvolvedora Web & UI/UX",
+  "short_name": "Nanda Youssef",
+  "description": "Portfólio profissional de Fernanda Youssef. Desenvolvedora Web com foco em PHP, MySQL, JavaScript e design de alto padrão.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0a090a",
+  "theme_color": "#0a090a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/images/nanda_portrait.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}

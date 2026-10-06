@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://nandayoussef.github.io/</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://nandayoussef.github.io/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nandayoussef.github.io/" />
+    <image:image>
+      <image:loc>https://nandayoussef.github.io/assets/images/nanda_portrait.jpg</image:loc>
+      <image:title>Fernanda Youssef - Desenvolvedora Web &amp; UI/UX</image:title>
+      <image:caption>Retrato profissional de Fernanda (Nanda) Youssef, Desenvolvedora Web Full Stack PHP e MySQL.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://nandayoussef.github.io/assets/images/web_dev_saas.jpg</image:loc>
+      <image:title>Nova Analytics Hub - Projeto SaaS em PHP e MySQL</image:title>
+      <image:caption>Plataforma SaaS desenvolvida por Fernanda Youssef.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://nandayoussef.github.io/assets/images/web_dev_ecommerce.jpg</image:loc>
+      <image:title>Aurélie Luxury E-Commerce</image:title>
+      <image:caption>E-Commerce de luxo responsivo com PHP, MySQL e JavaScript.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://nandayoussef.github.io/assets/images/digital_campaign.jpg</image:loc>
+      <image:title>Moderne Digital Suite - Landing Page</image:title>
+      <image:caption>Landing page interativa com efeitos glassmorphism.</image:caption>
+    </image:image>
+  </url>
+</urlset>
