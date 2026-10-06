@@ -82,7 +82,7 @@ if ($pdo) {
 }
 
 // Formatar mensagem para WhatsApp
-$phoneWhatsApp = '5511999999999'; // Número personalizável de Fernanda Youssef
+$phoneWhatsApp = '5521979695920'; // Número oficial de Fernanda Youssef (+55 21 97969-5920)
 $whatsappText = "✨ *Novo Contato pelo Portfólio Nanda Youssef*\n\n"
               . "👤 *Nome:* {$name}\n"
               . "✉️ *E-mail:* {$email}\n"

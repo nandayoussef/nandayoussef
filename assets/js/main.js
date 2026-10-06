@@ -867,7 +867,7 @@ function initContactForm() {
         showFeedback(data.error || 'Ocorreu um erro ao enviar.', 'error');
       }
     } catch (err) {
-      const fallbackUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(
+      const fallbackUrl = `https://wa.me/5521979695920?text=${encodeURIComponent(
         `Olá Fernanda! Meu nome é ${name} (${email}). Assunto: ${subject}. Mensagem: ${message}`
       )}`;
       showFeedback(currentLang === 'en' ? 'Message ready! Click below to send via WhatsApp:' : 'Mensagem pronta! Clique abaixo para enviar via WhatsApp:', 'success');

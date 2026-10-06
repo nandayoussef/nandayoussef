@@ -94,8 +94,10 @@ $jsVersion  = file_exists(__DIR__ . '/assets/js/main.js') ? filemtime(__DIR__ . 
         "jobTitle": "Desenvolvedora Web & UI/UX",
         "description": "Desenvolvedora Web especializada em PHP 8, banco de dados MySQL, JavaScript e criação de interfaces modernas de alto padrão.",
         "email": "mailto:nandayoussef@gmail.com",
+        "telephone": "+55-21-97969-5920",
         "sameAs": [
-          "https://github.com/nandayoussef"
+          "https://github.com/nandayoussef",
+          "https://wa.me/5521979695920"
         ],
         "knowsAbout": [
           "PHP 8",
@@ -314,7 +316,7 @@ $jsVersion  = file_exists(__DIR__ . '/assets/js/main.js') ? filemtime(__DIR__ . 
             <a href="https://linkedin.com/in/nandayoussef" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="LinkedIn">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
             </a>
-            <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="WhatsApp">
+            <a href="https://wa.me/5521979695920" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="WhatsApp">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
             </a>
           </div>
@@ -807,11 +809,11 @@ $jsVersion  = file_exists(__DIR__ . '/assets/js/main.js') ? filemtime(__DIR__ . 
             </p>
 
             <div class="contact-channels">
-              <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" class="channel-item">
+              <a href="https://wa.me/5521979695920" target="_blank" rel="noopener noreferrer" class="channel-item">
                 <div class="channel-icon">💬</div>
                 <div>
                   <div class="channel-title">WhatsApp</div>
-                  <div class="channel-value">+55 (11) 99999-9999</div>
+                  <div class="channel-value">+55 (21) 97969-5920</div>
                 </div>
               </a>
 
