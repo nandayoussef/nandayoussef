@@ -239,7 +239,6 @@ $jsVersion  = file_exists(__DIR__ . '/assets/js/main.js') ? filemtime(__DIR__ . 
           <li><a href="#skills" class="nav-link" data-i18n="nav_skills">Habilidades</a></li>
           <li><a href="#journey" class="nav-link" data-i18n="nav_journey">Trajetória</a></li>
           <li><a href="#faq" class="nav-link" data-i18n="nav_faq">FAQ</a></li>
-          <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Contato</a></li>
           <li class="mobile-cta-item" style="display: none;">
             <a href="#contact" class="btn btn-primary btn-sm mobile-menu-cta" data-i18n="nav_cta">
               Fale Comigo &rarr;
