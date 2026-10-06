@@ -14,6 +14,10 @@ $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
 $scriptDir = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? '')), '/');
 $baseUrl = $protocol . $host . ($scriptDir ? $scriptDir . '/' : '/');
 $canonicalUrl = $baseUrl;
+
+// Cache busting dinâmico para forçar atualização em CDNs (Cloudflare) e navegadores
+$cssVersion = file_exists(__DIR__ . '/assets/css/style.css') ? filemtime(__DIR__ . '/assets/css/style.css') : time();
+$jsVersion  = file_exists(__DIR__ . '/assets/js/main.js') ? filemtime(__DIR__ . '/assets/js/main.js') : time();
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR" data-theme="dark" prefix="og: https://ogp.me/ns# profile: https://ogp.me/ns/profile#">
@@ -198,8 +202,8 @@ $canonicalUrl = $baseUrl;
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- Main Stylesheet (com Cache-Busting automático) -->
+  <link rel="stylesheet" href="assets/css/style.css?v=<?= $cssVersion ?>">
 </head>
 <body>
 
@@ -234,7 +238,7 @@ $canonicalUrl = $baseUrl;
           <li><a href="#journey" class="nav-link" data-i18n="nav_journey">Trajetória</a></li>
           <li><a href="#faq" class="nav-link" data-i18n="nav_faq">FAQ</a></li>
           <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Contato</a></li>
-          <li class="mobile-cta-item">
+          <li class="mobile-cta-item" style="display: none;">
             <a href="#contact" class="btn btn-primary btn-sm mobile-menu-cta" data-i18n="nav_cta">
               Fale Comigo &rarr;
             </a>
@@ -988,7 +992,7 @@ $canonicalUrl = $baseUrl;
     </div>
   </footer>
 
-  <!-- Main JavaScript File -->
-  <script src="assets/js/main.js"></script>
+  <!-- Main JavaScript File (com Cache-Busting automático) -->
+  <script src="assets/js/main.js?v=<?= $jsVersion ?>"></script>
 </body>
 </html>
